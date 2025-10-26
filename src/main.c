@@ -1,10 +1,55 @@
+#include "string.h"
 #include "grid.c"
 #include "save.c"
 
 int main() {
-    printf("\n");
-    printf("----------- Sudoku -----------\n");
+    char action[7];
 
+    printf("\n");
+    printf("----------- Sudoku -----------\n\n");
+
+    printf("Current grid: no open grid\n");
+
+    while (1) {
+        printf("\nAction: ");
+        fgets(action, 8, stdin);
+
+        if (!strcmp(action, "create\n")) {
+            struct Grid grid = create_grid(30);
+            view_grid(grid.grid);
+            
+        }
+
+        else if (!strcmp(action, "save\n")) {
+            printf("Save!\n");
+        }
+
+        else if (!strcmp(action, "saves\n")) {
+            printf("Saves!\n");
+        }
+
+        else if (!strcmp(action, "load\n")) {
+            printf("Load!\n");
+        }
+
+        else if (!strcmp(action, "view\n")) {
+            printf("View!\n");
+        }
+
+        else if (!strcmp(action, "place\n")) {
+            printf("Placed!\n");
+        }
+
+        else if (!strcmp(action, "exit\n")) {
+            return 0;
+        }
+
+        else {
+            printf("Unknown action.\n");
+        }
+    }
+
+    /*
     char grid[9][9] = {
         {'5', '3', ' ', ' ', '7', ' ', ' ', ' ', ' '},
         {'6', ' ', ' ', '1', '9', '5', ' ', ' ', ' '},
@@ -18,18 +63,5 @@ int main() {
         {' ', ' ', ' ', '4', '1', '9', ' ', ' ', '5'},
         {' ', ' ', ' ', ' ', '8', ' ', ' ', '7', '9'},
     };
-
-    view_grid(grid);
-
-    /*
-    Current grid: no open grid
-
-    create. Create new grid
-    save. Save grid
-    load. Load grid
-    view. View grid
-    f4=2. Place 2 to cell f4
     */
-
-    return 0;
 }
