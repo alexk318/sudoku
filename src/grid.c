@@ -7,8 +7,9 @@ struct Grid {
 };
 
 struct Grid create_grid(char n) {
+    // n - Число цифр
 
-     struct Grid grid = {{
+    struct Grid grid = {{
         {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
         {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
         {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
