@@ -4,36 +4,50 @@
 
 int main() {
     char action[7];
+    char grid[9][9] = {
+        {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+        {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+        {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+        {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+        {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+        {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+        {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+        {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+        {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+    };
 
     printf("\n");
     printf("----------- Sudoku -----------\n\n");
 
-    printf("Current grid: no open grid\n");
+    printf("Current grid: no open grid\n\n");
 
     while (1) {
-        printf("\nAction: ");
         fgets(action, 8, stdin);
 
         if (!strcmp(action, "create\n")) {
-            struct Grid grid = create_grid(30);
-            view_grid(grid.grid);
+            save();
+            printf("Saved!\n\n");
+            //struct Grid grid = create_grid(30);
+            //view_grid(grid.grid);
             
         }
 
         else if (!strcmp(action, "save\n")) {
-            printf("Save!\n");
+            char filename[16];
+            fgets(filename, 16, stdin);
+            printf("%s", filename);
         }
 
         else if (!strcmp(action, "saves\n")) {
             printf("Saves!\n");
         }
 
-        else if (!strcmp(action, "load\n")) {
-            printf("Load!\n");
+        else if (!strcmp(action, "open\n")) {
+            printf("Open!\n");
         }
 
         else if (!strcmp(action, "view\n")) {
-            printf("View!\n");
+            view_grid(grid);
         }
 
         else if (!strcmp(action, "place\n")) {
